@@ -24,10 +24,14 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: mkdir ./artifacts
+      run: mkdir ./artifacts
+      
     - name: Download the file
       uses: actions/download-artifact@v4
       with:
         name: hello-artifact
+        path: ./artifacts/hello.txt
         
     - name: Cat hello.txt
       run: cat ./artifacts/hello.txt
